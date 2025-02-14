@@ -59,28 +59,28 @@
         <div class="text-center text-white flex flex-row space-x-8 sm:space-x-16">
             <div class="flex flex-row space-x-4">
                 <div class="bg-gray-800 p-4 rounded-lg w-8 h-8 sm:w-16 sm:h-16 flex items-center justify-center">
-                    <div class="text-2xl sm:text-6xl font-mono text-green-500" id="digit-display">8</div>
+                    <div class="text-2xl sm:text-6xl font-mono text-green-500" id="digit-hour-tens">8</div>
                 </div>
                 <div class="bg-gray-800 p-4 rounded-lg w-8 h-8 sm:w-16 sm:h-16 flex items-center justify-center">
-                    <div class="text-2xl sm:text-6xl font-mono text-green-500" id="digit-display">8</div>
-                </div>
-            </div>
-            
-            <div class="flex flex-row space-x-4">
-                <div class="bg-gray-800 p-4 rounded-lg w-8 h-8 sm:w-16 sm:h-16 flex items-center justify-center">
-                    <div class="text-2xl sm:text-6xl font-mono text-green-500" id="digit-display">8</div>
-                </div>
-                <div class="bg-gray-800 p-4 rounded-lg w-8 h-8 sm:w-16 sm:h-16 flex items-center justify-center">
-                    <div class="text-2xl sm:text-6xl font-mono text-green-500" id="digit-display">8</div>
+                    <div class="text-2xl sm:text-6xl font-mono text-green-500" id="digit-hour-units">8</div>
                 </div>
             </div>
             
             <div class="flex flex-row space-x-4">
                 <div class="bg-gray-800 p-4 rounded-lg w-8 h-8 sm:w-16 sm:h-16 flex items-center justify-center">
-                    <div class="text-2xl sm:text-6xl font-mono text-green-500" id="digit-display">8</div>
+                    <div class="text-2xl sm:text-6xl font-mono text-green-500" id="digit-minute-tens">8</div>
                 </div>
                 <div class="bg-gray-800 p-4 rounded-lg w-8 h-8 sm:w-16 sm:h-16 flex items-center justify-center">
-                    <div class="text-2xl sm:text-6xl font-mono text-green-500" id="digit-display">8</div>
+                    <div class="text-2xl sm:text-6xl font-mono text-green-500" id="digit-minute-units">8</div>
+                </div>
+            </div>
+            
+            <div class="flex flex-row space-x-4">
+                <div class="bg-gray-800 p-4 rounded-lg w-8 h-8 sm:w-16 sm:h-16 flex items-center justify-center">
+                    <div class="text-2xl sm:text-6xl font-mono text-green-500" id="digit-second-tens">8</div>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg w-8 h-8 sm:w-16 sm:h-16 flex items-center justify-center">
+                    <div class="text-2xl sm:text-6xl font-mono text-green-500" id="digit-second-units">8</div>
                 </div>
             </div>
         </div>
@@ -131,6 +131,14 @@
             document.getElementById('second-4-2').classList.toggle('bg-green-500', secondUnitsBinary[1] === '1');
             document.getElementById('second-2-2').classList.toggle('bg-green-500', secondUnitsBinary[2] === '1');
             document.getElementById('second-1-2').classList.toggle('bg-green-500', secondUnitsBinary[3] === '1');
+
+            // Update Digital Display
+            document.getElementById('digit-hour-tens').textContent = Math.floor(hours / 10);
+            document.getElementById('digit-hour-units').textContent = hours % 10;
+            document.getElementById('digit-minute-tens').textContent = Math.floor(minutes / 10);
+            document.getElementById('digit-minute-units').textContent = minutes % 10;
+            document.getElementById('digit-second-tens').textContent = Math.floor(seconds / 10);
+            document.getElementById('digit-second-units').textContent = seconds % 10;
         }
 
         // Update every second
